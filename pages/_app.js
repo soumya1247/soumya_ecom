@@ -1,5 +1,5 @@
 import React from 'react'
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 import Layout from '../components/Layout'
 import '../styles/globals.css'
