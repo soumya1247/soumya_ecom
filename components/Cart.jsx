@@ -28,7 +28,7 @@ const Cart = () => {
     const data = await response.json();
 
     toast.loading('Redirecting...');
-    console.log(data);
+   
     stripe.redirectToCheckout({ sessionId: data.id });
   }
 
@@ -47,7 +47,7 @@ const Cart = () => {
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
-            <h3>Your shopping bag is empty</h3>
+            <h3>Your Shopping bag is empty</h3>
             <Link href="/">
               <button
                 type="button"
@@ -67,7 +67,7 @@ const Cart = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h4>Rs.{item.price}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
@@ -75,7 +75,7 @@ const Cart = () => {
                       <span className="minus" onClick={() => toogleCartItemQuantity(item._id, 'dec')}>
                         <AiOutlineMinus />
                       </span>
-                      <span className="num" onClick="">{item.quantity}</span>
+                      <span className="num">{item.quantity}</span>
                       <span className="plus" onClick={() => toogleCartItemQuantity(item._id, 'inc')}><AiOutlinePlus /></span>
                     </p>
                   </div>
@@ -95,12 +95,13 @@ const Cart = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Subtotal:</h3>
-              <h3>${totalPrice}</h3>
+              <h3>Rs.{totalPrice}</h3>
             </div>
             <div className="btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
-                Pay with Stripe
+                Continue to Payment
               </button>
+              Use Card As: 4242 4242 4242 4242
             </div>
           </div>
         )}

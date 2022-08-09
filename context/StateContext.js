@@ -68,10 +68,16 @@ export const StateContext = ({ children }) => {
             // let newCartItems = [...cartItems, {...product, 
             //     quantity: product.quantity + 1
             // }]
-            setCartItems([...newCartItems, {
-                ...foundProduct,
-                quantity: foundProduct.quantity + 1
-            }]);
+
+            //Was Changing order in items in cart.But code ok
+
+            // setCartItems([...newCartItems, {
+            //     ...foundProduct,
+            //     quantity: foundProduct.quantity + 1
+            // }]);
+
+            //Works but Mutating state
+            setCartItems([...newCartItems.slice(0, index), {...foundProduct, quantity: foundProduct.quantity + 1}, ...newCartItems.slice(index)])
 
             setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
             setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1)
@@ -79,10 +85,12 @@ export const StateContext = ({ children }) => {
             // cartItems[index] = foundProduct;
         } else if (value === 'dec') {
             if (foundProduct.quantity > 1) {
-                setCartItems([...newCartItems, {
-                    ...foundProduct,
-                    quantity: foundProduct.quantity - 1
-                }]);
+                // setCartItems([...newCartItems, {
+                //     ...foundProduct,
+                //     quantity: foundProduct.quantity - 1
+                // }]);
+
+                setCartItems([...newCartItems.slice(0, index), {...foundProduct, quantity: foundProduct.quantity - 1}, ...newCartItems.slice(index)])
 
                 setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
                 setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)

@@ -30,7 +30,7 @@ function Success() {
                 </p>
                 <p className='description'>
                     If you have any Questions please email
-                    <a className='email' href="mailto:soumya@example.com">
+                    <a className='email' href="mailto:soumyadexter7@gmail.com">
                         Customer Support
                     </a>
                 </p>

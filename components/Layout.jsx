@@ -8,7 +8,7 @@ function Layout({ children }) {
   return (
     <div className='layout'>
       <Head>
-        <title>Soumya Ecom</title>
+        <title>Apple Store Online</title>
       </Head>
 
       <header>
