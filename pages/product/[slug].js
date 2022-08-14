@@ -46,7 +46,7 @@ function ProductDetails({ product, products }) {
                             <AiFillStar />
                             <AiOutlineStar />
                         </div>
-                        <p>(20)</p>
+                        <p>(100,568)</p>
                     </div>
                     <h4>Details:</h4>
                     <p>{details}</p>
